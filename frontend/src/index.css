@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #71c9ce;
+  --color-primary-50: #eefafa;
+  --color-primary-100: #d5f2f3;
+  --color-primary-200: #abe5e7;
+  --color-primary-300: #82d8db;
+  --color-primary-400: #71c9ce; /* Base color */
+  --color-primary-500: #5bb6bb;
+  --color-primary-600: #4aa3a8;
+  --color-primary-700: #3a8a8f;
+  --color-primary-800: #2c7074;
+  --color-primary-900: #1e5558;
+
+  /* Secondary (neutral support) */
+  --color-secondary: #f4f8f8;
+}
+
+::-webkit-scrollbar {
+  @apply hidden;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ... agar pehle se koi aur CSS likhi hai toh likhi rehne dein ... */
+
+/* 🔥 Bilkul end mein yeh snippet paste kar dein */
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
