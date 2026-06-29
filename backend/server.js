@@ -12,7 +12,8 @@ import messageModel from './models/messageModel.js'
 
 // app config
 const app = express()
-const port = process.env.PORT || 4000
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 connectDB()
 connectCloudinary()
 
@@ -39,7 +40,7 @@ io.on("connection", (socket) => {
     console.log(`Socket Room Joined Successfully: ${room}`)
   })
 
-  // ✅ Chat History Pipeline channel (Synchronized directly with new frontend configuration hooks)
+  // Chat History Pipeline channel (Synchronized directly with new frontend configuration hooks)
   socket.on("get_history", async (room) => {
     try {
       const messages = await messageModel.find({ appointmentId: room }).sort({ date: 1 });
