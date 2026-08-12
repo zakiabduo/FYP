@@ -1,132 +1,87 @@
-# 🏥 HealthSync — Open-Source AI-Powered Doctor Appointment & Telehealth Platform
+Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**!
+
+If you'd like to contribute:
+1. **Fork** the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature# 🏥 HealthSync — AI-Powered Healthcare & Telehealth Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![MERN Stack](https://img.shields.io/badge/Stack-MERN-green.svg)](https://mongodb.com)
-[![Real-time](https://img.shields.io/badge/Realtime-Socket.io-black.svg)](https://socket.io)
-[![AI Integration](https://img.shields.io/badge/AI-Google_Gemini_API-orange.svg)](https://ai.google.dev)
+[![Real-Time](https://img.shields.io/badge/RealTime-Socket.io-black.svg)](https://socket.io)
+[![AI Integration](https://img.shields.io/badge/AI-Google_Gemini-orange.svg)](https://ai.google.dev)
+[![Payments](https://img.shields.io/badge/Payments-Stripe-6772e5.svg)](https://stripe.com)
 
-> **HealthSync** is an enterprise-grade, full-stack healthcare platform connecting patients with medical professionals. It streamlines patient-doctor interactions using real-time messaging, AI-assisted symptom triage, automated payments, and smart scheduling.
+> An enterprise-grade, full-stack healthcare platform designed to simplify patient-doctor interactions through real-time communication, automated payments, and AI-assisted symptom triage.
 
 ---
 
 ## 🌟 Key Features
 
-### 🤖 AI Medical Assistant (Google Gemini)
-- **Interactive Symptom Triage** — natural language symptom assessment powered by the Google Gemini API.
-- **Smart Specialist Matching** — automatically recommends relevant medical specialties based on patient input.
-- **Pre-Consultation Insights** — generates summary briefs for doctors ahead of appointments.
+### 🤖 AI Medical Assistant (Google Gemini API)
+* **Pre-Consultation Triage:** Interactive symptom checker to assist patients before booking.
+* **Specialist Recommendations:** Automated suggestions for relevant medical fields based on user inputs.
 
-### ⚡ Real-Time Consultation (Socket.io)
-- **Direct Messaging** — instant, low-latency chat sessions locked to valid appointment IDs, with full chat history persistence.
-- **Typing & Read Indicators** — real-time presence and message status tracking.
-- **Secure Rooms** — JWT-authenticated WebSocket handshakes for private communication channels.
+### 💬 Real-Time Consultation (Socket.io)
+* **Direct Messaging:** Low-latency chat rooms restricted to specific appointment sessions.
+* **Live Indicators:** Real-time presence detection and message delivery status updates.
+* **Chat History:** Persistent records stored securely for post-consultation review.
 
-### 💳 Payments & Booking
-- **Stripe Integration** — secure checkout for online consultation fees.
-- **Webhook Handlers** — automated state sync for booking confirmations and refunds.
-- **Schedule Conflict Prevention** — algorithmic slot locking to prevent double-booking.
+### 💳 Booking & Payment System (Stripe)
+* **Automated Payments:** Smooth checkout flow for consultation fees.
+* **Webhook Processing:** Automatic status sync for confirmed bookings and cancellations.
+* **Conflict Prevention:** Real-time slot locking to avoid double-booking.
 
-### 🧑‍⚕️ Multi-Role Portals
-- Dedicated dashboards for **Patients**, **Doctors**, and **Admins**, with JWT-based Role-Based Access Control (RBAC).
-
-### 📋 Digital Medical Records
-- Direct generation and management of digital prescriptions and consultation notes.
+### 🔒 Access Control & Portals
+* **Role-Based Access Control (RBAC):** Separate workflows for **Patients**, **Doctors**, and **Administrators**.
+* **Medical Records:** Generation and tracking of digital prescriptions and clinical notes.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React.js, Tailwind CSS, Axios, React Router, Socket.io-client |
-| **Backend** | Node.js, Express.js, Socket.io |
-| **Database** | MongoDB, Mongoose ODM |
-| **AI Engine** | Google Gemini API (`@google/generative-ai`) |
-| **Payments** | Stripe API (Checkout & Webhooks) |
-| **Authentication** | JSON Web Tokens (JWT), bcrypt.js |
+* **Frontend:** React.js, Tailwind CSS, Axios, React Router, Socket.io-client
+* **Backend:** Node.js, Express.js, Socket.io
+* **Database:** MongoDB, Mongoose ODM
+* **AI Integration:** Google Gemini API (`@google/generative-ai`)
+* **Payments:** Stripe API & Webhooks
+* **Authentication:** JSON Web Tokens (JWT), bcrypt.js
 
 ---
 
-## 🏗️ System Architecture & Workflow
-
-```text
-[ Patient Portal ] ──(Gemini AI Triage)──> [ Find Doctor & Select Slot ]
-         │                                               │
-  (Socket.io Chat)                                 (Stripe Payment)
-         │                                               │
-         ▼                                               ▼
-[ Real-Time Consultation ] <──(Appointment Confirmed)── [ Node/Express Server ]
-                                                                 │
-                                                          [ MongoDB Database ]
-```
-
----
-
-## 🚀 Quick Start
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (>= v18.0.0)
-- MongoDB (local instance or MongoDB Atlas URI)
-- Stripe Developer Account (Publishable & Secret Keys)
-- Google AI Studio (Gemini) API Key
+* **Node.js:** v18.0.0 or higher
+* **Database:** MongoDB local instance or MongoDB Atlas URI
+* **API Keys:** Stripe Account Keys and Google Gemini API Key
 
-### Installation
+### Installation & Local Setup
 
-**1. Clone the repository**
-```bash
-git clone https://github.com/your-username/healthsync.git
-cd healthsync
-```
+Backend Configuration
 
-**2. Backend setup**
-```bash
+Bash
 cd backend
 npm install
-```
+Create a .env file in the backend directory:
 
-Create a `.env` file in the `backend/` directory:
-```env
+Code snippet
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 STRIPE_SECRET_KEY=your_stripe_secret_key
-STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 GEMINI_API_KEY=your_google_gemini_api_key
 CLIENT_URL=http://localhost:3000
-```
+Frontend Configuration
 
-**3. Frontend setup**
-```bash
+Bash
 cd ../frontend
 npm install
-```
+Running the Application
 
-**4. Run the application**
-```bash
-# In /backend
+Bash
+# Run backend (from /backend directory)
 npm run dev
 
-# In /frontend (new terminal)
+# Run frontend (from /frontend directory)
 npm start
-```
-
----
-
-## 🤝 Contributing
-
-Contributions make the open-source community an incredible place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag `enhancement`.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📜 License
-
-Distributed under the **MIT License**. See `LICENSE` for more information.
